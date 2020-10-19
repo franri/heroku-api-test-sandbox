@@ -21,13 +21,20 @@ app.get('/webhook', (req, res) => {
   });
 
   app.post('/webhook', (req, res) => {
-      console.log(`req.ip: ${req.ip}`);
-      console.log(`req.ips: ${req.ips}`);
-      console.log(`req.query: ${req.query}`);
-      console.log(`req.params: ${req.params}`);
-      console.log(`req.body: ${req.body}`);
-      const data = {"get": req.query, "body": req.body};
-      const string = util.inspect(d, false, null, true /* enable colors */)
+      let ret = '';
+      let s = '';
+      console.log(`req.ip: ${JSON.stringify(req.ip)}`);
+      s = s + `req.ip: ${JSON.stringify(req.ip)}` + '\n';
+      console.log(`req.ips: ${JSON.stringify(req.ips)}`);
+      s = s + `req.ips: ${JSON.stringify(req.ips)}` + '\n';
+      console.log(`req.headers: ${JSON.stringify(req.headers)}`);
+      s = s + `req.headers: ${JSON.stringify(req.headers)}` + '\n';
+      console.log(`req.query: ${JSON.stringify(req.query)}`);
+      s = s + `req.query: ${JSON.stringify(req.query)}` + '\n';
+      console.log(`req.params: ${JSON.stringify(req.params)}`);
+      s = s + `req.params: ${JSON.stringify(req.params)}` + '\n';
+      console.log(`req.body: ${JSON.stringify(req.body)}`);
+      s = s + `req.body: ${JSON.stringify(req.body)}` + '\n';
       console.log(s);
       res.send(s);
   });
